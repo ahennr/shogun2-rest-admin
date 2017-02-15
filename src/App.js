@@ -10,7 +10,7 @@ import {Admin, Resource} from 'admin-on-rest';
 // import { PostList, PostEdit, PostCreate } from './posts';
 import {LayerList} from './models/layers';
 import {UserList, UserAdd, UserEdit} from './models/users';
-import {GroupList} from './models/groups';
+import {GroupList, GroupEdit} from './models/groups';
 import {ModuleList} from './models/modules';
 import {TileGridList} from './models/tilegrids';
 import {ApplicationList} from './models/application'
@@ -58,8 +58,8 @@ const App = () => (
     <Admin authClient={authClient} restClient={shogun2RestClient(SHOGUN2_REST_URL)} title="SHOGun2 REST administration dashboard" theme={muiTheme}>
         <Resource name="applications" list={ApplicationList}/>
         <Resource name="layers" list={LayerList}/>
-        <Resource name="users" list={UserList}  edit={UserEdit} create={UserAdd}/>
-        <Resource name="groups" list={GroupList}/>
+        <Resource name="users" list={UserList} edit={UserEdit} create={UserAdd}/>
+        <Resource name="groups" list={GroupList} edit={GroupEdit}/>
         <Resource name="roles" list={RolesList}/>
         <Resource name="mapconfigs" list={MapConfigList}/>
         <Resource name="mapcontrols" list={MapControlList}/>

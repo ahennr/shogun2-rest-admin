@@ -5,7 +5,7 @@ export const MapControlList = (props) => (
     <List title="All available map controls" {...props}>
         <Datagrid>
             <TextField source="id" />
-            <TextField source="name" />
+            <TextField source="mapControlName" />
         </Datagrid>
     </List>
 );

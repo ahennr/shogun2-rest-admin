@@ -9,10 +9,9 @@ import {
     TextField,
     EditButton,
     DisabledInput,
-    LongTextInput,
-    ReferenceInput,
     SimpleForm,
     TextInput,
+    ReferenceInput,
     SelectInput,
     BooleanField,
     BooleanInput,
@@ -38,9 +37,14 @@ export const UserList = (props) => (
             <TextField source="language"/>
             <BooleanField source="active"/>
             <ReferenceManyField label="Roles" reference="roles" source="role_id" target="id">
-              <SingleFieldList>
-                 <ChipField source="description" />
-              </SingleFieldList>
+                <SingleFieldList>
+                    <ChipField source="description"/>
+                </SingleFieldList>
+            </ReferenceManyField>
+            <ReferenceManyField label="Groups" reference="groups" source="group id" target="id">
+                <SingleFieldList>
+                    <ChipField source="name"/>
+                </SingleFieldList>
             </ReferenceManyField>
             <EditButton/>
         </Datagrid>
@@ -73,7 +77,10 @@ export const UserEdit = (props) => (
                     name: 'mongolian'
                 }
             ]}/>
-          <BooleanInput label="Active" source="active"/>
+            <BooleanInput label="Active" source="active"/>
+            <ReferenceInput label="Groups" source="groups_id" reference="groups" target="id">
+                <SelectInput optionText="name"/>
+            </ReferenceInput>
         </SimpleForm>
     </Edit>
 );
@@ -81,11 +88,24 @@ export const UserEdit = (props) => (
 export const UserAdd = (props) => (
     <Create {...props}>
         <SimpleForm>
-            <ReferenceInput label="User" source="userId" reference="users" allowEmpty>
-                <SelectInput optionText="name"/>
-            </ReferenceInput>
-            <TextInput source="title"/>
-            <LongTextInput source="body"/>
+            <DisabledInput source="id"/>
+            <TextInput source="accountName"/>
+            <TextInput source="firstName"/>
+            <TextInput source="lastName"/>
+            <TextInput source="email"/>
+            <SelectInput source="language" choices={[
+                {
+                    id: 'german',
+                    name: 'deutsch'
+                }, {
+                    id: 'english',
+                    name: 'englisch'
+                }, {
+                    id: 'mongolian',
+                    name: 'mongolian'
+                }
+            ]}/>
+            <BooleanInput label="Active" source="active"/>
         </SimpleForm>
     </Create>
 );
