@@ -38,6 +38,7 @@ export default (apiUrl, httpClient = fetchJson) => {
                 range: JSON.stringify([(page - 1) * perPage, (page * perPage) - 1]),
                 filter: JSON.stringify(params.filter),
             };
+            console.log("GET_LIST");
             url = `${apiUrl}/${resource}?${queryParameters(query)}`;
             break;
         }
@@ -60,14 +61,7 @@ export default (apiUrl, httpClient = fetchJson) => {
                 filter: JSON.stringify({ ...params.filter, [params.target]: params.id }),
             };
             console.log("GET_MANY_REFERENCE: ", params.target, "\t",  params.id, "\t",  params.filter)
-            if (params.target && params.id) {
-              delete query.filter;
-              var filterObj = {};
-              filterObj[params.target] = params.id-2;
-              url = `${apiUrl}/${resource}/filter?${queryParameters(query)}&${queryParameters(filterObj)}`;
-            } else {
-              url = `${apiUrl}/${resource}?${queryParameters(query)}`;
-            }
+            url = `${apiUrl}/${resource}?${queryParameters(query)}`;
             break;
         }
         case UPDATE:
