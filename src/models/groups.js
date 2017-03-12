@@ -31,7 +31,7 @@ export const GroupList = (props) => (
                     <ChipField source="accountName"/>
                 </SingleFieldList>
             </ReferenceManyField>
-            <ReferenceManyField label="Members" reference="users" source="member_id" target="id">
+            <ReferenceManyField label="Members" reference="users" source="user_id" target="id">
                 <SingleFieldList>
                     <ChipField source="accountName"/>
                 </SingleFieldList>

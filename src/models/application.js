@@ -23,7 +23,7 @@ export const ApplicationList = (props) => (
             <BooleanField source="open"/>
             <BooleanField source="active"/>
             <UrlField source="url"/>
-            <ReferenceManyField label="Active Tools" reference="buttons" source="activeTools" target="id">
+            <ReferenceManyField label="Modules" reference="modules" source="source_id" target="id">
                 <SingleFieldList>
                     <ChipField source="name"/>
                 </SingleFieldList>

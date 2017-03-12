@@ -18,6 +18,8 @@ import {ButtonList} from './models/buttons'
 import {MapConfigList} from './models/mapconfig'
 import {MapControlList} from './models/mapcontrol'
 import {RolesList} from './models/roles'
+import {LayerAppearanceList} from './models/layerappearance'
+import {LayerDataSourceList} from './models/layerdatasources'
 import authClient from './auth/authClient';
 
 // SHOGUN2 REST client
@@ -66,6 +68,9 @@ const App = () => (
         <Resource name="modules" list={ModuleList}/>
         <Resource name="buttons" list={ButtonList}/>
         <Resource name="tilegrids" list={TileGridList}/>
+        <Resource name="layerappearances" list={LayerAppearanceList}/>
+        <Resource name="layerdatasources" list={LayerDataSourceList}/>
+
     </Admin>
 );
 
