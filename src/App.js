@@ -18,6 +18,8 @@ import {ButtonList} from './models/buttons'
 import {MapConfigList} from './models/mapconfig'
 import {MapControlList} from './models/mapcontrol'
 import {RolesList} from './models/roles'
+import {LayerAppearanceList} from './models/layerappearance'
+import {LayerDataSourceList} from './models/layerdatasources'
 import authClient from './auth/authClient';
 
 // SHOGUN2 REST client
@@ -28,7 +30,7 @@ import shogun2RestClient from './shogun2restclient/restclient';
 
 // BACKEND: TODO: Authorization
 // const SHOGUN2_REST_URL = 'http://localhost:8080/rest-sandbox/rest';
-const SHOGUN2_REST_URL = 'http://localhost:8080/momo/rest';
+const SHOGUN2_REST_URL = 'http://localhost:8080/restsandbox/rest';
 
 // THEME
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -66,6 +68,9 @@ const App = () => (
         <Resource name="modules" list={ModuleList}/>
         <Resource name="buttons" list={ButtonList}/>
         <Resource name="tilegrids" list={TileGridList}/>
+        <Resource name="layerappearances" list={LayerAppearanceList}/>
+        <Resource name="layerdatasources" list={LayerDataSourceList}/>
+
     </Admin>
 );
 
