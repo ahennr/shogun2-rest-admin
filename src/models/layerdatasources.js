@@ -12,9 +12,9 @@ export const LayerDataSourceList = (props) => (
             <TextField source="height" />
             <TextField source="layerNames" />
             <TextField source="layerStyles" />
-              <ReferenceField label="TileGrid" source="id" reference="tilegrids">
-                  <TextField source="id" />
-              </ReferenceField>
+            {/* <ReferenceField label="TileGrid" source="id" reference="tilegrids">
+                <TextField source="id" />
+            </ReferenceField> */}
         </Datagrid>
     </List>
 );

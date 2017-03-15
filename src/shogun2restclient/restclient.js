@@ -10,7 +10,10 @@ import {
 } from './types';
 
 /**
+ * Maps admin-on-rest queries to a simple REST API
  *
+ * The REST dialect is similar to the one of FakeRest
+ * @see https://github.com/marmelab/FakeRest
  * @example
  * GET_LIST     => GET http://my.api.url/posts?sort=['title','ASC']&range=[0, 24]
  * GET_ONE      => GET http://my.api.url/posts/123
@@ -38,7 +41,6 @@ export default (apiUrl, httpClient = fetchJson) => {
                 range: JSON.stringify([(page - 1) * perPage, (page * perPage) - 1]),
                 filter: JSON.stringify(params.filter),
             };
-            console.log("GET_LIST");
             url = `${apiUrl}/${resource}?${queryParameters(query)}`;
             break;
         }
@@ -60,7 +62,6 @@ export default (apiUrl, httpClient = fetchJson) => {
                 range: JSON.stringify([(page - 1) * perPage, (page * perPage) - 1]),
                 filter: JSON.stringify({ ...params.filter, [params.target]: params.id }),
             };
-            console.log("GET_MANY_REFERENCE: ", params.target, "\t",  params.id, "\t",  params.filter)
             url = `${apiUrl}/${resource}?${queryParameters(query)}`;
             break;
         }
@@ -81,6 +82,7 @@ export default (apiUrl, httpClient = fetchJson) => {
         default:
             throw new Error(`Unsupported fetch action type ${type}`);
         }
+
         return { url, options };
     };
 
@@ -95,19 +97,18 @@ export default (apiUrl, httpClient = fetchJson) => {
         const { headers, json } = response;
         switch (type) {
         case GET_LIST:
-          // TODO: add
-            // if (!headers.has('content-range')) {
-            //     throw new Error('The Content-Range header is missing in the HTTP Response. The simple REST client expects responses for lists of resources to contain this header with the total number of results to build the pagination. If you are using CORS, did you declare Content-Range in the Access-Control-Expose-Headers header?');
-            // }
-            console.log("Headers: " , headers)
+        case GET_MANY_REFERENCE:
+            if (!headers.has('content-range')) {
+                throw new Error('The Content-Range header is missing in the HTTP Response. The simple REST client expects responses for lists of resources to contain this header with the total number of results to build the pagination. If you are using CORS, did you declare Content-Range in the Access-Control-Expose-Headers header?');
+            }
             return {
-                data: json.map(x => x),
-                total: parseInt(json.length,10)//parseInt(headers.get('content-range').split('/').pop(), 10),
+                data: json,
+                total: parseInt(headers.get('content-range').split('/').pop(), 10)
             };
         case CREATE:
-            return { ...params.data, id: json.id };
+            return { data: { ...params.data, id: json.id } };
         default:
-            return json;
+            return { data: json };
         }
     };
 
