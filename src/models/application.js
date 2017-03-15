@@ -7,9 +7,11 @@ import {
     BooleanField,
     UrlField,
     ChipField,
-    ReferenceManyField,
+   ReferenceManyField,
     SingleFieldList
 } from 'admin-on-rest/lib/mui';
+
+//import ReferenceArrayField from '../additionalComponents/ReferenceArrayField.js';
 
 export const ApplicationList = (props) => (
     <List title="All available applications" {...props}>
@@ -23,7 +25,7 @@ export const ApplicationList = (props) => (
             <BooleanField source="open"/>
             <BooleanField source="active"/>
             <UrlField source="url"/>
-            <ReferenceManyField label="Modules" reference="modules" source="source_id" target="id">
+            <ReferenceManyField label="Modules" reference="modules" source="activeTools" target="id">
                 <SingleFieldList>
                     <ChipField source="name"/>
                 </SingleFieldList>

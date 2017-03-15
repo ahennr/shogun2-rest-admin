@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, Datagrid, TextField, UrlField, ReferenceField } from 'admin-on-rest/lib/mui';
+import { List, Datagrid, TextField, UrlField } from 'admin-on-rest/lib/mui';
 
 export const LayerDataSourceList = (props) => (
     <List title="All available layer datasources" {...props}>
