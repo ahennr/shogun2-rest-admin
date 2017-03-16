@@ -33,7 +33,7 @@ import shogun2RestClient from './shogun2restclient/restclient';
 
 // BACKEND: TODO: Authorization
 // const SHOGUN2_REST_URL = 'http://localhost:8080/rest-sandbox/rest';
-const SHOGUN2_REST_URL = 'http://localhost:8080/momo/rest';
+const SHOGUN2_REST_URL = 'http://localhost:8080/restsandbox/rest';
 
 // THEME
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
