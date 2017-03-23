@@ -3,15 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "eslint": "^3.17.1",
+    "eslint": "^3.18.0",
     "eslint-plugin-html": "^2.0.1",
-    "eslint-plugin-react": "^6.10.0",
+    "eslint-plugin-react": "^6.10.3",
     "eslint-plugin-react-native": "^2.3.1",
     "react-scripts": "^0.9.5",
-    "redux-logger": "^2.8.2"
+    "redux-logger": "^3.0.0"
   },
   "dependencies": {
-    "admin-on-rest": "^0.9.1",
+    "admin-on-rest": "^0.9.3",
     "material-ui": "^0.17.0",
     "openlayers": "^4.0.1",
     "react": "^15.4.2",

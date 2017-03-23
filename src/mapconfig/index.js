@@ -15,6 +15,7 @@ import {
   } from 'admin-on-rest/lib/mui';
 
 import Ol3Map from '../map/Ol3Map.js';
+import DisabledMapPropertyField from './DisabledMapPropertyField';
 
 export const MapConfigList = (props) => (
     <List title="All available map configs" {...props}>
@@ -59,7 +60,7 @@ export const MapConfigEdit = (props) => (
                 name: 'Google Maps Global Mercator -- Spherical Mercator'
               }
             ]}/>
-            <DisabledInput source="zoom" />
+            <DisabledMapPropertyField sourceProp="zoom" zoom="5"/>
             <DisabledInput source="center.x" />
             <DisabledInput source="center.y" />
             <DisabledInput source="rotation" />
