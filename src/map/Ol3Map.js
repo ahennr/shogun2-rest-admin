@@ -48,7 +48,7 @@ class Ol3Map extends React.Component {
     });
 
     // register ol-listener to handle user-initiated prop updates
-    console.log("this.props.onMapViewChange registered")
+    console.log('this.props.onMapViewChange registered');
     map.on('moveend', this.props.onMapMoveEnd);
 
     this.map = map;

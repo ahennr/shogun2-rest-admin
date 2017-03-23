@@ -16,7 +16,7 @@ import {
 } from 'admin-on-rest/lib/mui';
 
 const GroupTitle = ({record}) => {
-    return <span>Group {record
+  return <span>Group {record
             ? `"${record.name}"`
             : ''}</span>;
 };

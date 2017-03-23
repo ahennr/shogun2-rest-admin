@@ -52,7 +52,7 @@ export const UserList = (props) => (
 );
 
 const UserTitle = ({record}) => {
-    return <span>User {record
+  return <span>User {record
             ? `${record.firstName} ${record.lastName} (${record.accountName})`
             : ''}</span>;
 };
@@ -66,16 +66,16 @@ export const UserEdit = (props) => (
             <TextInput source="lastName"/>
             <TextInput source="email"/>
             <SelectInput source="language" choices={[
-                {
-                    id: 'german',
-                    name: 'deutsch'
-                }, {
-                    id: 'english',
-                    name: 'englisch'
-                }, {
-                    id: 'mongolian',
-                    name: 'mongolian'
-                }
+              {
+                id: 'german',
+                name: 'deutsch'
+              }, {
+                id: 'english',
+                name: 'englisch'
+              }, {
+                id: 'mongolian',
+                name: 'mongolian'
+              }
             ]}/>
             <BooleanInput label="Active" source="active"/>
             <ReferenceInput label="Groups" source="groups_id" reference="groups" target="id">
@@ -94,16 +94,16 @@ export const UserAdd = (props) => (
             <TextInput source="lastName"/>
             <TextInput source="email"/>
             <SelectInput source="language" choices={[
-                {
-                    id: 'german',
-                    name: 'deutsch'
-                }, {
-                    id: 'english',
-                    name: 'englisch'
-                }, {
-                    id: 'mongolian',
-                    name: 'mongolian'
-                }
+              {
+                id: 'german',
+                name: 'deutsch'
+              }, {
+                id: 'english',
+                name: 'englisch'
+              }, {
+                id: 'mongolian',
+                name: 'mongolian'
+              }
             ]}/>
             <BooleanInput label="Active" source="active"/>
         </SimpleForm>
