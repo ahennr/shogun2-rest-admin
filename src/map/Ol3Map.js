@@ -7,7 +7,6 @@ import { changeMapView } from '../actions/MapViewChangeAction';
 // 2) moveend
 
 var ol = require('openlayers');
-import './ol.css';
 import './olmap.css';
 
 class Ol3Map extends React.Component {
@@ -31,6 +30,7 @@ class Ol3Map extends React.Component {
   }
 
   componentDidMount() {
+    console.log('Component map did mount');
     let mapView = new ol.View({
       center: [this.props.record.center.x, this.props.record.center.y],
       zoom: this.props.record.zoom,
@@ -48,25 +48,10 @@ class Ol3Map extends React.Component {
     });
 
     // register ol-listener to handle user-initiated prop updates
-    console.log('this.props.onMapViewChange registered');
     map.on('moveend', this.props.onMapMoveEnd);
 
     this.map = map;
   }
-
-  // componentWillReceiveProps(newProps) {
-  //   console.log("new props receibed");
-  //   if (newProps.zoom && newProps.zoom !== this.props.zoom) {
-  //     this.map.getView().animate({
-  //       zoom: newProps.zoom
-  //     });
-  //
-  //     this.map.getView().setZoom(newProps.zoom);
-  //   }
-  //   if (newProps.center) {
-  //     this.map.getView().setCenter(newProps.center);
-  //   }
-  // }
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -76,7 +61,6 @@ const mapDispatchToProps = (dispatch) => {
       let mapZoom = newObj.map.getView().getZoom();
       let mapExtent = newObj.map.getView().calculateExtent(newObj.map.getSize());
       let mapRotation= newObj.map.getView().getRotation();
-      console.log('will dispatch new view: ',mapCenter, mapZoom, mapExtent, mapRotation);
       dispatch(changeMapView(mapCenter, mapZoom, mapExtent, mapRotation));
     }
   };
@@ -87,7 +71,8 @@ Ol3Map.propTypes = {
   zoom: React.PropTypes.number,
   extent: React.PropTypes.arrayOf(React.PropTypes.number),
   rotation: React.PropTypes.number,
-  onMapMoveEnd: React.PropTypes.func
+  onMapMoveEnd: React.PropTypes.func,
+  record: React.PropTypes.object
 };
 
 export default connect(null, mapDispatchToProps)(Ol3Map);

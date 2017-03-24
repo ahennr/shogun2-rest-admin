@@ -11,7 +11,6 @@ import {
     SelectInput,
     SimpleForm,
     TextField
-    // LongTextInput
   } from 'admin-on-rest/lib/mui';
 
 
@@ -61,12 +60,10 @@ export const MapConfigEdit = (props) => (
                 name: 'Google Maps Global Mercator -- Spherical Mercator'
               }
             ]}/>
-            <DisabledMapPropertyField sourceProp="zoom" zoom="5"/>
-            <DisabledInput source="center.x" />
-            <DisabledInput source="center.y" />
-            <DisabledInput source="rotation" />
-            {/* <LongTextInput source="resolutions" /> */}
-
+            <DisabledMapPropertyField sourceProp="zoom"/>
+            <DisabledMapPropertyField sourceProp="centerx" title="X Coordinate of center"/>
+            <DisabledMapPropertyField sourceProp="centery" title="Y Coordinate of center"/>
+            <DisabledMapPropertyField sourceProp="rotation"/>
         </SimpleForm>
     </Edit>
 );
@@ -92,12 +89,10 @@ export const MapConfigAdd = (props) => (
                 name: 'Google Maps Global Mercator -- Spherical Mercator'
               }
             ]}/>
-            <DisabledInput source="zoom" />
-            <DisabledInput source="center.x" />
-            <DisabledInput source="center.y" />
-            <DisabledInput source="rotation" />
-            {/* <LongTextInput source="resolutions" /> */}
-
+            <DisabledMapPropertyField sourceProp="zoom"/>
+            <DisabledMapPropertyField sourceProp="centerx" title="X Coordinate of center"/>
+            <DisabledMapPropertyField sourceProp="centery" title="Y Coordinate of center"/>
+            <DisabledMapPropertyField sourceProp="rotation"/>
         </SimpleForm>
   </Create>
 );
