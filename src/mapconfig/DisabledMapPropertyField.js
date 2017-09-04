@@ -1,6 +1,6 @@
-import React, {PropTypes, Component} from 'react';
+import React, { Component } from 'react';
 import {connect} from 'react-redux';
-
+import PropTypes from 'prop-types';
 import TextField from 'material-ui/TextField';
 
 class DisabledMapPropertyField extends Component {
@@ -42,8 +42,8 @@ DisabledMapPropertyField.propTypes = {
   record: PropTypes.object,
   sourceProp: PropTypes.string,
   zoom: PropTypes.number,
-  center: React.PropTypes.arrayOf(React.PropTypes.number),
-  extent: React.PropTypes.arrayOf(React.PropTypes.number),
+  center: PropTypes.arrayOf(PropTypes.number),
+  extent: PropTypes.arrayOf(PropTypes.number),
   rotation: PropTypes.number,
   title: PropTypes.string
 };

@@ -20,23 +20,11 @@ module.exports =  {
     port: 3000
   },
 
-  // resolve: {
-  //   alias: {
-  //     'ag-grid-root': __dirname + '/node_modules/ag-grid'
-  //   }
-  // },
-
   module: {
     loaders: [{
       test: /\.jsx?$/,
       exclude: /node_modules/,
-      loader: 'babel',
-      // query: {
-      //   presets: [
-      //     'es2015',
-      //     'react'
-      //   ]
-      // }
+      loader: 'babel-loader'
     }, {
       test: /\.scss$/,
       loaders: [
@@ -48,10 +36,6 @@ module.exports =  {
       test: /\.css$/,
       loader: 'style-loader!css-loader'
     }]
-  },
-
-  sassLoader: {
-    includePaths: [path.resolve(__dirname, './src/sass')]
   },
 
   plugins: [

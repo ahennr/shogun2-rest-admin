@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import LinearProgress from 'material-ui/LinearProgress';
 import { crudGetMany as crudGetManyAction } from 'admin-on-rest';

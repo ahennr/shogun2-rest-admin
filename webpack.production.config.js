@@ -11,10 +11,7 @@ prodConfig.plugins.push(
     }
   }),
   new CopyWebpackPlugin([{
-    from: 'app/index.html'
-  },{
-    from: 'app/resources',
-    to: 'resources'
+    from: 'src/index.html'
   }])
 );
 

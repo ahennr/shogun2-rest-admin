@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { changeMapView } from '../actions/MapViewChangeAction';
+import PropTypes from 'prop-types';
 
 // TODO:
 // 1) defaults (create)
@@ -67,12 +68,12 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 Ol3Map.propTypes = {
-  center: React.PropTypes.arrayOf(React.PropTypes.number),
-  zoom: React.PropTypes.number,
-  extent: React.PropTypes.arrayOf(React.PropTypes.number),
-  rotation: React.PropTypes.number,
-  onMapMoveEnd: React.PropTypes.func,
-  record: React.PropTypes.object
+  center: PropTypes.arrayOf(PropTypes.number),
+  zoom: PropTypes.number,
+  extent: PropTypes.arrayOf(PropTypes.number),
+  rotation: PropTypes.number,
+  onMapMoveEnd: PropTypes.func,
+  record: PropTypes.object
 };
 
 export default connect(null, mapDispatchToProps)(Ol3Map);
